@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    거의 대부분에 컴포넌트들은
+    width height 속성을 가지고 있다.
+    match_parent 속성이란 화면을 꽉 채우겠다.
+    wrap_content 자신이 가지고 있는 컨텐츠만큼 공간을 차지 하겠다.
+
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:src="@drawable/image"
+        android:scaleType="fitStart"
+        android:layout_width="300dp"
+        android:layout_height="533dp"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="안녕하세요"
+        android:textSize="50dp" />
+
+</LinearLayout>
