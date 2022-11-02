@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
+
     <FrameLayout
         android:layout_width="300dp"
         android:layout_height="500dp"
