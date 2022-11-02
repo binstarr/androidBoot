@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView caTextView;
     private TextView resultTextView;
     private TextView minusTextView;
+    private TextView multiTextView;
+    private TextView divideTextView;
 
 
     String oldValue = "0";
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         minusTextView = findViewById(R.id.minus);
         caTextView = findViewById(R.id.ca);
         resultTextView = findViewById(R.id.resultTextView);
+        multiTextView = findViewById(R.id.multi);
+        divideTextView = findViewById(R.id.divide);
     }
 
     private void addEventListener() {
@@ -160,6 +164,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        caTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newValue = "";
+                oldValue = "0";
+                resultTextView.setText("0");
+                Log.d("TAG", "ca 버튼 눌러짐");
+                Log.d("TAG", view.toString());
+            }
+        });
+
         plusTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -174,17 +189,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        caTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                newValue = "";
-                oldValue = "0";
-                resultTextView.setText("0");
-                Log.d("TAG", "ca 버튼 눌러짐");
-                Log.d("TAG", view.toString());
-            }
-        });
-
         minusTextView.setOnClickListener(view -> {
             if (oldValue.equals("0")) {
                 oldValue = newValue;
@@ -195,6 +199,44 @@ public class MainActivity extends AppCompatActivity {
                 int num2 = Integer.parseInt(newValue);
                 int sum = (num1 - num2);
                 oldValue = String.valueOf(sum);
+                newValue = "";
+                resultTextView.setText(oldValue);
+                Log.d("TAG", "oldValue : " + oldValue);
+                Log.d("TAG", "newValue : " + newValue);
+            }
+        });
+
+        multiTextView.setOnClickListener(view -> {
+            if (oldValue.equals("0")){
+                oldValue = newValue;
+                newValue = "";
+                resultTextView.setText("0");
+                Log.d("TAG", "oldValue : " + oldValue);
+                Log.d("TAG", "newValue : " + newValue);
+            }else{
+                int num1 = Integer.parseInt(oldValue);
+                int num2 = Integer.parseInt(newValue);
+                int multi = (num1*num2);
+                oldValue = String.valueOf(multi);
+                newValue = "";
+                resultTextView.setText(oldValue);
+                Log.d("TAG", "oldValue : " + oldValue);
+                Log.d("TAG", "newValue : " + newValue);
+            }
+        });
+
+        divideTextView.setOnClickListener(view -> {
+            if (oldValue.equals("0")){
+                oldValue = newValue;
+                newValue = "";
+                resultTextView.setText("0");
+                Log.d("TAG", "oldValue : " + oldValue);
+                Log.d("TAG", "newValue : " + newValue);
+            }else{
+                double num1 = Integer.parseInt(oldValue);
+                double num2 = Integer.parseInt(newValue);
+                double multi = (num1/num2);
+                oldValue = String.valueOf(multi);
                 newValue = "";
                 resultTextView.setText(oldValue);
                 Log.d("TAG", "oldValue : " + oldValue);
